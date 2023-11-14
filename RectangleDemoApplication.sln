@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RectangleApi", "RectangleAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Containers", "Containers\Containers.csproj", "{90291709-2A88-48D1-A52E-25B36488DD14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xUnitTest", "xUnitTest\xUnitTest.csproj", "{9437C5E7-E5B8-4A9C-95BF-5A0D7A7FE269}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xUnitTest", "xUnitTest\xUnitTest.csproj", "{754C44C8-092C-4EAD-9566-2944156F651A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,9 +20,9 @@ Global
 		{90291709-2A88-48D1-A52E-25B36488DD14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90291709-2A88-48D1-A52E-25B36488DD14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90291709-2A88-48D1-A52E-25B36488DD14}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9437C5E7-E5B8-4A9C-95BF-5A0D7A7FE269}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9437C5E7-E5B8-4A9C-95BF-5A0D7A7FE269}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9437C5E7-E5B8-4A9C-95BF-5A0D7A7FE269}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9437C5E7-E5B8-4A9C-95BF-5A0D7A7FE269}.Release|Any CPU.Build.0 = Release|Any CPU
+		{754C44C8-092C-4EAD-9566-2944156F651A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{754C44C8-092C-4EAD-9566-2944156F651A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{754C44C8-092C-4EAD-9566-2944156F651A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{754C44C8-092C-4EAD-9566-2944156F651A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

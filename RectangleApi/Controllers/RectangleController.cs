@@ -1,14 +1,15 @@
 ﻿using Containers;
 using Containers.Api;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace RectangleApi.Controllers;
 
 public class RectangleController : ControllerBase
 {
-    private readonly InMemoryDbContext _context;
+    private readonly IDbContext _context;
 
-    public RectangleController(InMemoryDbContext context)
+    public RectangleController(IDbContext context)
     {
         _context = context;
     }
@@ -16,13 +17,13 @@ public class RectangleController : ControllerBase
     [HttpPost]
     [Route(UrlPath.Coordinates)]
     [Produces("application/json")]
-    public Task<IActionResult> SearchRectangles([FromBody] int[][] coordinates)
+    public async Task<IActionResult> SearchRectangles([FromBody] int[][] coordinates)
     {
-        var result = coordinates.Select(coord => _context.Rectangles
+        var result = coordinates.Select(async coord => await _context.Rectangles
             .Where(rect => rect.X <= coord[0] && rect.X + rect.Width >= coord[0]
                                               && rect.Y <= coord[1] && rect.Y + rect.Height >= coord[1])
-            .ToList());
+            .ToListAsync());
 
-        return Task.FromResult<IActionResult>(Ok(result));
+        return Ok(await Task.WhenAll(result));
     }
 }

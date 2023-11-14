@@ -1,16 +1,13 @@
-using Containers;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+using Containers; 
+using Microsoft.EntityFrameworkCore; 
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<InMemoryDbContext>(options =>
-    options.UseInMemoryDatabase("InMemoryDb")
-);
+builder.Services.AddDbContext<IDbContext, InMemoryDbContext>(options =>
+    options.UseInMemoryDatabase("InMemoryDb"));
+
 
 var app = builder.Build();
 
