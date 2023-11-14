@@ -1,0 +1,11 @@
+### IDEs
+.vs/
+.idea/
+*.suo
+*.user
+*.DotSettings
+
+### Building
+**bin/
+**obj/
+**packages/
