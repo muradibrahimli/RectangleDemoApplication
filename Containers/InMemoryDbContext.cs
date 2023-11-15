@@ -5,6 +5,8 @@ namespace Containers;
 public class InMemoryDbContext : DbContext, IDbContext
 {
     public DbSet<Rectangle> Rectangles { get; set; }
+    public DbSet<User> Users { get; set; }
+
 
     public InMemoryDbContext(DbContextOptions<InMemoryDbContext> options) : base(options)
     {

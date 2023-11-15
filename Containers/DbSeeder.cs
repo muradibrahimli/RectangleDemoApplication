@@ -18,5 +18,22 @@ public abstract class DbSeeder
         }
 
         context.SaveChanges();
+
+        if (!context.Users.Any())
+        {
+            // Example users - replace with your own logic
+            context.Users.Add(new User
+            {
+                Username = "user1",
+                Password = BCrypt.Net.BCrypt.HashPassword("pass1")
+            });
+            context.Users.Add(new User
+            {
+                Username = "user2",
+                Password = BCrypt.Net.BCrypt.HashPassword("pass2")
+            });
+
+            context.SaveChanges();
+        }
     }
 }

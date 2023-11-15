@@ -1,10 +1,11 @@
 ﻿using Containers;
-using Containers.Api;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace RectangleApi.Controllers;
 
+[Authorize]
 public class RectangleController : ControllerBase
 {
     private readonly IDbContext _context;
