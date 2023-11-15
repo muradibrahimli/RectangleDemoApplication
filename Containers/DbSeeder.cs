@@ -19,21 +19,18 @@ public abstract class DbSeeder
 
         context.SaveChanges();
 
-        if (!context.Users.Any())
+        if (context.Users.Any()) return;
+        context.Users.Add(new User
         {
-            // Example users - replace with your own logic
-            context.Users.Add(new User
-            {
-                Username = "user1",
-                Password = BCrypt.Net.BCrypt.HashPassword("pass1")
-            });
-            context.Users.Add(new User
-            {
-                Username = "user2",
-                Password = BCrypt.Net.BCrypt.HashPassword("pass2")
-            });
+            Username = "user1",
+            Password = BCrypt.Net.BCrypt.HashPassword("pass1")
+        });
+        context.Users.Add(new User
+        {
+            Username = "user2",
+            Password = BCrypt.Net.BCrypt.HashPassword("pass2")
+        });
 
-            context.SaveChanges();
-        }
+        context.SaveChanges();
     }
 }

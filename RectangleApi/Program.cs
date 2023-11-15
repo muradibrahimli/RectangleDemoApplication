@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Rectangle Api", Version = "v1" });
 
     // Add Basic Authentication to Swagger
     c.AddSecurityDefinition("basic", new OpenApiSecurityScheme
@@ -31,21 +31,18 @@ builder.Services.AddSwaggerGen(c =>
                     Id = "basic"
                 }
             },
-            new string[] {}
+            Array.Empty<string>()
         }
     });
 });
 builder.Services.AddDbContext<IDbContext, InMemoryDbContext>(options =>
     options.UseInMemoryDatabase("InMemoryDb"));
 
-// Basic Authentication
 builder.Services.AddAuthentication("BasicAuthentication")
     .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
-
 var app = builder.Build();
 
-// Seed the database
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;

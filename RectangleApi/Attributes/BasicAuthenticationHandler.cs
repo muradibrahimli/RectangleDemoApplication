@@ -11,18 +11,17 @@ namespace RectangleApi.Attributes
 {
     public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
     {
-        private readonly InMemoryDbContext _dbContext; // Add a field for the database context
+        private readonly InMemoryDbContext _dbContext; 
 
-        // Modify the constructor to inject the database context
         public BasicAuthenticationHandler(
             IOptionsMonitor<AuthenticationSchemeOptions> options,
             ILoggerFactory logger,
             UrlEncoder encoder,
             ISystemClock clock,
-            InMemoryDbContext dbContext) // Add IDbContext parameter
+            InMemoryDbContext dbContext) 
             : base(options, logger, encoder, clock)
         {
-            _dbContext = dbContext; // Initialize the database context field
+            _dbContext = dbContext;
         }
 
         protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
@@ -38,7 +37,6 @@ namespace RectangleApi.Attributes
                 var username = credentials[0];
                 var password = credentials[1];
 
-                // Query the InMemoryDb to validate the username and password
                 var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Username == username);
 
                 if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.Password))
