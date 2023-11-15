@@ -25,6 +25,8 @@ public class RectangleController : ControllerBase
                                               && rect.Y <= coord[1] && rect.Y + rect.Height >= coord[1])
             .ToListAsync());
 
-        return Ok(await Task.WhenAll(result));
+        var listOfLists = (await Task.WhenAll(result)).Select(list => list.ToList()).ToList();
+
+        return Ok(listOfLists);
     }
 }
